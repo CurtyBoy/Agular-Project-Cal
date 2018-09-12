@@ -1,0 +1,31 @@
+<nb-card>
+    <nb-card-header>
+        <h4>Audit Log</h4>
+    </nb-card-header>
+    <nb-card-body>
+        <dx-data-grid #grid id="gridContainer" [dataSource]="auditSource" [showBorders]="true" [selectedRowKeys]="[]">
+            <dxo-filter-row [visible]="showFilterRow" [applyFilter]="currentFilter"></dxo-filter-row>
+            <dxo-header-filter [visible]="showHeaderFilter"></dxo-header-filter>
+            <dxo-selection mode="single"></dxo-selection>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-group-panel [visible]="true"></dxo-group-panel>
+            <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+
+
+
+            <dxi-column dataField="auditId" [width]="50" caption="ID"></dxi-column>
+            <dxi-column dataField="auditUser"></dxi-column>
+            <dxi-column dataField="auditDateTime"></dxi-column>
+            <dxi-column dataField="tableAffected" [width]="400"></dxi-column>
+            <dxi-column dataField="attributeAffected"></dxi-column>
+            <dxi-column dataField="auditType.auditTypeName"></dxi-column>
+
+
+
+            <dxo-remote-operations [sorting]="true" [paging]="true">
+            </dxo-remote-operations>
+            <dxo-paging [pageSize]="12"></dxo-paging>
+            <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[8, 12, 20]"></dxo-pager>
+        </dx-data-grid>
+    </nb-card-body>
+</nb-card>

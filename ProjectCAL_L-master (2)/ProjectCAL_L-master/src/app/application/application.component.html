@@ -1,0 +1,73 @@
+<nb-card>
+    <nb-card-header>
+        <h4>Application</h4>
+    </nb-card-header>
+    <nb-card-body>
+            <dx-data-grid #grid id="gridContainer" [dataSource]="applicationSource" [showBorders]="true" [selectedRowKeys]="[]">
+                    <dxo-filter-row [visible]="showFilterRow" [applyFilter]="currentFilter"></dxo-filter-row>
+                    <dxo-header-filter [visible]="showHeaderFilter"></dxo-header-filter>
+                    <dxo-selection mode="single"></dxo-selection>
+                    <dxo-header-filter [visible]="true"></dxo-header-filter>
+                    <dxo-group-panel [visible]="true"></dxo-group-panel>
+                    <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+                    .
+                    <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="false" [allowDeleting]="true">
+                    
+                        <dxo-popup title="Employee Info" [showTitle]="true" [width]="700" [height]="600" [position]="{ my: 'center', at: 'center', of: window }">
+                    
+                        </dxo-popup>
+                        <dxo-texts [confirmDeleteMessage]="null"></dxo-texts>
+                    </dxo-editing>
+        
+        
+        
+                    <dxi-column dataField="applicationId" [width]="50" caption="ID"></dxi-column>
+                    <dxi-column dataField="applicationDate" dataType="date"></dxi-column>
+                    <dxi-column dataField="applicationStatusId" ></dxi-column>
+                    <dxi-column dataField="applicationStatus.applicationStatusDescr"></dxi-column>
+                    <dxi-column dataField="dateAccepted" dataType="date" ></dxi-column>
+                    <dxi-column dataField="employee.employeeName"></dxi-column>
+                   
+        
+        
+        
+                     <dxo-remote-operations [sorting]="true" [paging]="true">
+                    </dxo-remote-operations> -->
+                 <dxo-paging [pageSize]="12"></dxo-paging>
+                    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[8, 12, 20]"></dxo-pager> 
+                </dx-data-grid>   
+                <div id="ApplicationInfo" *ngIf="grid.selectedRowKeys.length">
+
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.agentName}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.agentSurname}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.agentEmail}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.agentNationalId}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.agentPassportNo}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.dateEmployed}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.agentCompany}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.bankAccNo}}</p>
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.bankName}}</p>
+
+                        <p class="ApplicationNotes">{{grid.instance.getSelectedRowsData()[0].agent.applicationAccepted}}</p>
+
+
+
+
+                                                
+                       
+                    </div> 
+    </nb-card-body>
+</nb-card>
+
+<!-- 
+<nb-card>
+    <div id="form-demo">
+        <div class="widget-container">
+            <div>Select company:</div>
+            <dx-select-box #company displayExpr="Name" [(dataSource)]="companies" [value]="companies[0]"></dx-select-box>
+            <dx-form id="form" [(formData)]="company.value" [readOnly]="readOnly" [showColonAfterLabel]="showColon" [labelLocation]="labelLocation"
+                [minColWidth]="minColWidth" [colCount]="colCount" [width]="width"></dx-form>
+        </div>
+
+    </div>
+</nb-card> -->

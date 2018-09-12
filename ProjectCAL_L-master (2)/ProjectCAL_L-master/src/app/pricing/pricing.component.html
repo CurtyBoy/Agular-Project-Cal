@@ -1,0 +1,27 @@
+<router-outlet></router-outlet>
+
+<div>
+
+    
+    <ul *ngFor="let pricing of pricings">
+        <li>{{pricing.packagePrice}}</li>
+    </ul>
+</div>
+
+<div>
+    
+    <table class="table table-bordered">
+        <tr>
+          <th>ID</th>
+          <th>name </th> 
+          <th>Surname</th>
+        </tr>
+        <tr *ngFor="let sender of senders">
+          <td>{{sender.senderId}}</td>
+          <td>{{sender.senderName}}</td> 
+          <td>{{sender.senderSurname}}</td>
+        </tr>
+    
+      </table>
+    
+</div><p> This is a Pricing Page baby</p>

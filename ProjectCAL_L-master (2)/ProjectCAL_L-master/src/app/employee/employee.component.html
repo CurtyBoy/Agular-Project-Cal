@@ -1,0 +1,140 @@
+<router-outlet></router-outlet>
+
+
+<nb-card>
+    <nb-card-header>
+        <h4>Registered Employees</h4>
+    </nb-card-header>
+    <nb-card-body>
+        <dx-data-grid #grid id="gridContainer" [dataSource]="dataSource" [showBorders]="true" [selectedRowKeys]="[]">
+            <dxo-selection mode="single"></dxo-selection>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-group-panel [visible]="true"></dxo-group-panel>
+            <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+
+            .
+            <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true">
+
+                <dxo-popup title="Employee Info" [showTitle]="true" [width]="700" [height]="600" [position]="{ my: 'center', at: 'center', of: window }">
+
+                </dxo-popup>
+                <dxo-texts [confirmDeleteMessage]="null"></dxo-texts>
+            </dxo-editing>
+
+            <dxi-column dataField="employeeId" [width]="50" caption="ID"></dxi-column>
+            <dxi-column dataField="employeeName" caption="Name">
+                <!-- <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [min]="3" message="Login should be longer than 3 symbols"></dxi-validation-rule> -->
+            </dxi-column>
+            <dxi-column dataField="employeeSurname" caption="Surname">
+                <!-- <dxi-validation-rule type="required" message="Surname is required"></dxi-validation-rule>
+                <dxi-validation-rule type="stringLength" [min]="3" message="Login should be longer than 3 symbols"></dxi-validation-rule>
+                <dxi-validation-rule type="pattern" [pattern]="namePattern" message="Do not use digits in the Name"></dxi-validation-rule> -->
+            </dxi-column>
+            <dxi-column dataField="login.phoneNo" caption="Phone Number">
+
+            </dxi-column>
+            <dxi-column dataField="employeeEmail" caption="Email">
+                <!-- <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+                <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule> -->
+            </dxi-column>
+            <dxi-column dataField="accessRole.accessRoleName" caption="Access Role">
+
+            </dxi-column>
+
+            <dxi-column dataField="employeeActive" [width]="100" caption="Active"></dxi-column>
+            <dxi-column dataField="dateEmployed" [width]="100" dataType="date" caption="Employed">
+                <!-- <dxi-validation-rule 
+                    type="required"
+                    message="Date of birth is required">
+                </dxi-validation-rule> -->
+            </dxi-column>
+
+            <dxo-remote-operations [sorting]="true" [paging]="true">
+            </dxo-remote-operations>
+            <dxo-paging [pageSize]="1"></dxo-paging>
+            <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[8, 12, 20]"></dxo-pager>
+        </dx-data-grid>
+
+        <div id="employeeInfo" *ngIf="grid.selectedRowKeys.length">
+
+            <p class="employeeNotes">{{grid.instance.getSelectedRowsData()[0].employeeEmail}}</p>
+            <p class="employeeNotes">{{grid.instance.getSelectedRowsData()[0].employeeNationalId}}</p>
+            <p class="employeeNotes">{{grid.instance.getSelectedRowsData()[0].dateEmployed}}</p>
+        </div>
+
+    </nb-card-body>
+
+
+
+</nb-card>
+
+<!--<nb-card>
+    <nb-card-header>
+        <h4>Registered Employees</h4>
+    </nb-card-header>
+    <nb-card-body>
+         <form #employee="ngForm" (ngSubmit)="onSubmit()" novalidate>
+            {{employee.value | json}}
+            <hr /> {{model | json}}
+
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="ussername" required [(ngModel)]="model.employeeName" name="employeeName">
+            </div>
+            <div class="form-group">
+                <label for="name">Surname:</label>
+                <input type="text" class="form-control" id="Surname" required [(ngModel)]="model.employeeSurname" name="employeeSurname">
+            </div>
+            <div class="form-group">
+                <label for="name">Email</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.employeeEmail" name="employeeEmail">
+            </div>
+            <div class="form-group">
+                <label for="name">NationalId</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.employeeNationalId" name="employeeNationalId">
+            </div>
+            <div class="form-group">
+                <label for="name">PassportNo</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.employeePassportNo" name="employeePassportNo">
+            </div>
+            <div class="form-group">
+                <label for="name">Active</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.employeeActive" name="employeeActive">
+            </div>
+            <div class="form-group">
+                <label for="name">dateEmployed</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.dateEmployed" name="dateEmployed">
+            </div>
+            <div class="form-group">
+                <label for="name">accessRoleId</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.accessRoleId" name="accessRoleId">
+            </div>
+
+            <div ngModelGroup="login">
+            <div class="form-group">
+                <label for="name">phoneNo</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.phoneNo" name="phoneNo">
+            </div>
+            <div class="form-group">
+                <label for="name">password</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="name">userTypeId</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="model.userTypeId" name="userTypeId">
+            </div>
+        </div>
+           
+            <button type="submit" class="default">Save</button>
+
+
+
+
+        </form> 
+    </nb-card-body>
+
+
+
+</nb-card>-->

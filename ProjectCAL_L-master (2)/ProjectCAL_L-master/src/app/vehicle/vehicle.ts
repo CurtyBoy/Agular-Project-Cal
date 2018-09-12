@@ -1,0 +1,19 @@
+export interface IVehicle{
+    vehicleId:number,
+    licencePlateNo:string,
+    colour:string,
+    model:string,
+    vehicleActive:number,
+    dateVerified:string,
+    dateDeactivated:string,
+    verified:number,
+    agentId:number,
+    vehicleMakeId:number,
+    vehicleTypeId:number,
+    vehicleStatusId:number,
+    vehicleImageId:string,
+    agent:string,
+    vehicleMake:string,
+    vehicleStatus:string,
+    vehicleType:string
+}

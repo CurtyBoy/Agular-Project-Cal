@@ -1,0 +1,39 @@
+<nb-card>
+        <nb-card-header>
+            <h4>Shipment Agents</h4>
+        </nb-card-header>
+        <nb-card-body>
+                <dx-data-grid #grid id="gridContainer" [dataSource]="agentSource" [showBorders]="true" [selectedRowKeys]="[]">
+                        <dxo-filter-row [visible]="showFilterRow" [applyFilter]="currentFilter"></dxo-filter-row>
+                        <dxo-header-filter [visible]="showHeaderFilter"></dxo-header-filter>
+                        <dxo-selection mode="single"></dxo-selection>
+                        <dxo-header-filter [visible]="true"></dxo-header-filter>
+                        <dxo-group-panel [visible]="true"></dxo-group-panel>
+                        <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+
+                        .
+                        <dxo-editing [allowDeleting]="true">
+                                <dxo-texts [confirmDeleteMessage]="null"></dxo-texts>
+                            </dxo-editing>
+                
+            
+                        
+            
+                        <dxi-column dataField="agentName"></dxi-column>
+                        <dxi-column dataField="agentSurname"></dxi-column>
+                        <dxi-column dataField="agentEmail"></dxi-column>
+                        <dxi-column dataField="agentNationalId"></dxi-column>\
+                        <dxi-column dataField="agentPassportNo"></dxi-column>
+                        <dxi-column dataField="agentAvailability"></dxi-column>
+                    <dxi-column dataField="login.phoneNo"></dxi-column>
+                <dxi-column dataField=""></dxi-column>
+            <dxi-column dataField=""></dxi-column>
+         
+<!--             
+                        <dxo-remote-operations [sorting]="true" [paging]="true">
+                        </dxo-remote-operations> -->
+                        <dxo-paging [pageSize]="12"></dxo-paging>
+                        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[8, 12, 20]"></dxo-pager>
+                    </dx-data-grid>
+        </nb-card-body>
+    </nb-card>

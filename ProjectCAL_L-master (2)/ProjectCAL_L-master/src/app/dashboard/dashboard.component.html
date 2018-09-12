@@ -1,0 +1,135 @@
+<div>
+        <nb-card>
+                <nb-card-header >
+                        <h2 style="text-align: center;">Agents Online</h2>
+                    </nb-card-header>
+            <nb-card-body>
+                    <dx-map 
+                    key="AIzaSyD64dwboOjDpOIJVx0e-jvdvGQRkaqLFfE"
+                    [zoom]="11" 
+        [height]="440" 
+        width="100%" 
+        [controls]="true" 
+        [markerIconSrc]="mapMarkerUrl" 
+        [markers]="markers">
+                </dx-map>           
+            </nb-card-body>
+        </nb-card>
+    </div>
+<!-- <div class="row ">
+    <div class="col-5">
+        <nb-card>
+            <nb-card-header>
+                <h4>Graph one </h4>
+            </nb-card-header>
+            <nb-card-body>
+                <div id="chart-demo">
+                    <dx-chart title="" palette="Harmony Light" [dataSource]="populationData">
+                        <dxi-series valueField="y1564" name="15-64 years"></dxi-series>
+                        <dxi-series valueField="y014" name="0-14 years"></dxi-series>
+                        <dxi-series valueField="y65" name="65 years and older"></dxi-series>
+                        <dxo-common-series-settings #commonSeries argumentField="country" [type]="types[0]">
+                        </dxo-common-series-settings>
+                        <dxo-margin [bottom]="20"></dxo-margin>
+                        <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
+                        <dxo-export [enabled]="true"></dxo-export>
+                        <dxo-legend verticalAlignment="bottom" horizontalAlignment="center">
+                        </dxo-legend>
+                    </dx-chart>
+                </div>
+            </nb-card-body>
+            </nb-card>
+    </div>
+    <div class="col-5">
+        <nb-card>
+            <nb-card-header>
+                <h4>Graph two</h4>
+            </nb-card-header>
+            <nb-card-body>
+                    <div class="pies-container">
+                            <dx-pie-chart class="pie"
+                                          title="Area of Countries"
+                                          sizeGroup="piesGroup"
+                                          palette="Soft"
+                                          [dataSource]="countries">
+                                <dxi-series argumentField="name"
+                                            valueField="area">
+                                    <dxo-label [visible]="true" format="percent"></dxo-label>
+                                </dxi-series>
+                                <dxo-legend verticalAlignment="bottom"
+                                            horizontalAlignment="center"
+                                            itemTextPosition="right">
+                                </dxo-legend>
+                            </dx-pie-chart>
+                            </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-5">
+        <nb-card>
+            <nb-card-header>
+                <h4>Graph three</h4>
+            </nb-card-header>
+            <nb-card-body>
+                    <dx-chart
+                    id="chart"
+                    [dataSource]="dataSource">
+                    <dxi-series
+                        argumentField="day"
+                        valueField="oranges"
+                        name="My oranges"
+                        type="bar"
+                        color="#ffaa66">
+                    </dxi-series>
+                </dx-chart>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-5">
+        <nb-card>
+            <nb-card-header>
+                <h4>Graph four</h4>
+            </nb-card-header>
+            <nb-card-body>
+                    <div id="chart-demo">
+                            <dx-chart
+                                palette="violet"
+                                [dataSource]="countriesInfo">
+                                <dxi-series
+                                    *ngFor="let energy of energySources"
+                                    [valueField]="energy.value"
+                                    [name]="energy.name">
+                                </dxi-series>
+                                <dxo-common-series-settings #seriesSettings
+                                    argumentField="country"
+                                    [type]="types[0]">
+                                </dxo-common-series-settings>
+                                <dxo-margin [bottom]="20"></dxo-margin>
+                                <dxo-argument-axis
+                                    [valueMarginsEnabled]="false"
+                                    discreteAxisDivisionMode="crossLabels">
+                                    <dxo-grid [visible]="true"></dxo-grid>
+                                </dxo-argument-axis>
+                                <dxo-legend
+                                    verticalAlignment="bottom"
+                                    horizontalAlignment="center"
+                                    itemTextPosition="bottom">
+                                </dxo-legend>
+                                <dxo-title
+                                    text="Energy Consumption in 2004">
+                                    <dxo-subtitle text="(Millions of Tons, Oil Equivalent)">
+                                    </dxo-subtitle>
+                                </dxo-title>
+                                <dxo-export [enabled]="true"></dxo-export>
+                                <dxo-tooltip
+                                    [enabled]="true"
+                                    [customizeTooltip]="customizeTooltip">
+                                </dxo-tooltip>
+                            </dx-chart>
+                            </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div> -->

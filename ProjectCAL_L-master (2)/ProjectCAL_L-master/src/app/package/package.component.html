@@ -1,0 +1,35 @@
+<nb-card>
+        <nb-card-header>
+            <h4>Package Type</h4>
+        </nb-card-header>
+        <nb-card-body>
+                <dx-data-grid #grid id="gridContainer" [dataSource]="packageType" [showBorders]="true" [selectedRowKeys]="[]">
+                        <dxo-filter-row [visible]="showFilterRow" [applyFilter]="currentFilter"></dxo-filter-row>
+                        <dxo-header-filter [visible]="showHeaderFilter"></dxo-header-filter>
+                        <dxo-selection mode="single"></dxo-selection>
+                        <dxo-header-filter [visible]="true"></dxo-header-filter>
+                        <dxo-group-panel [visible]="true"></dxo-group-panel>
+                        <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+
+                        .
+                        <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true">
+                            <dxo-popup title="Employee Info" [showTitle]="true" [width]="700" [height]="600" [position]="{ my: 'center', at: 'center', of: window }">
+                            </dxo-popup>
+                            <dxo-texts [confirmDeleteMessage]="null"></dxo-texts>
+                        </dxo-editing>
+            
+                         
+            
+                        <dxi-column dataField="packageType.packageTypeDescr"></dxi-column>
+                        <dxi-column dataField="packagePrice1"></dxi-column>
+                        <dxi-column dataField="dateFrom" dataType="date"></dxi-column>
+                        <dxi-column dataField="dateTo" dataType="date"></dxi-column>
+                        <dxi-column dataField="active"></dxi-column>
+            
+                        <!-- <dxo-remote-operations [sorting]="true" [paging]="true">
+                        </dxo-remote-operations> -->
+                        <dxo-paging [pageSize]="12"></dxo-paging>
+                        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[8, 12, 20]"></dxo-pager>
+                    </dx-data-grid>
+        </nb-card-body>
+    </nb-card>

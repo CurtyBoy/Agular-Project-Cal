@@ -1,0 +1,82 @@
+<div>
+  <div class="row">
+
+    <div cl>
+
+    </div>
+  </div>
+  <div class="row">
+
+  </div>
+</div>
+
+
+<div *ngIf="loginThis">
+
+  <nb-card>
+    <nb-card-body>
+      <form #login="ngForm" (ngSubmit)="onSubmit()" novalidate>
+      
+
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="ussername" required [(ngModel)]="model.ussername" name="ussername">
+        </div>
+        <div class="form-group">
+          <label for="name">Password</label>
+          <input type="text" class="form-control" id="password" required [(ngModel)]="model.password" name="password">
+        </div>
+        <button type="submit" class="default">login</button>
+
+        
+
+
+      </form>
+
+      <dx-button type="default " text="Login" (click)="onLogin()"></dx-button>
+    </nb-card-body>
+  </nb-card>
+
+
+</div>
+
+
+
+<div *ngIf="showThis">
+  <header>
+    <div class="row">
+      <div class="col-lg-8">
+        <img src="{{logo}}" width="201" height="67" routerLink="/newpage" />
+      </div>
+      <div class="col-lg-2" style="padding-left: 25px;">
+        <h3 style="text-align: right;"> Curt Watkins</h3>
+      </div>
+      <div class="col-lg-1" style="padding-top: 20px;">
+        <dx-button type="default " text="Logout" (click)="onClick()"></dx-button>
+      </div>
+
+    </div>
+  </header>
+  <nb-layout>
+
+
+    <nb-sidebar>
+
+
+
+      <dx-menu #menu [dataSource]="products" displayExpr="name" [showFirstSubmenuMode]="showFirstSubmenuModes" orientation="verticle"
+        submenuDirection="auto" [hideSubmenuOnMouseLeave]="false" (onItemClick)="itemClick($event)">
+      </dx-menu>
+
+
+
+
+
+    </nb-sidebar>
+
+    <nb-layout-column style="background-color:#b7d3b6; height: 100%;">
+      <router-outlet></router-outlet>
+    </nb-layout-column>
+  </nb-layout>
+</div>
